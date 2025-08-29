@@ -13,7 +13,6 @@ export function useNote() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [editingNote, setEditingNote] = useState<Note | null>(null);
 
-  // 🔹 Ambil data saat awal load
   useEffect(() => {
     fetchNotes();
   }, []);
@@ -31,7 +30,6 @@ export function useNote() {
     if (note.trim() === "") return;
 
     if (editingNote) {
-      // Update
       const { data, error } = await supabase
         .from("notes")
         .update({ content: note })
@@ -43,7 +41,6 @@ export function useNote() {
         setEditingNote(null);
       }
     } else {
-      // Insert
       const { data, error } = await supabase
         .from("notes")
         .insert([{ title: "Catatan Baru", content: note }])
