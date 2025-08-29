@@ -1,7 +1,7 @@
 import 'react-native-url-polyfill/auto';
 import React from "react";
 import { ScrollView, View, Text, TextInput, TouchableOpacity } from "react-native";
-import { useNote } from "../../utils/useNote"; // pastikan path benar
+import { useNote } from "../../utils/useNote";
 
 export default function Index() {
   const { note, notes, editingNote, setNote, addOrUpdateNote, deleteNote, editNote } = useNote();
@@ -10,7 +10,7 @@ export default function Index() {
     <ScrollView style={{ paddingTop: 20, paddingHorizontal: 20 }}>
       <Text style={{ fontSize: 24, fontWeight: "bold", marginBottom: 20 }}>NotesKuy</Text>
 
-      {/* Input + Button */}
+     
       <View style={{ flexDirection: "row", alignItems: "center", marginBottom: 20 }}>
         <TextInput
           style={{
@@ -40,7 +40,7 @@ export default function Index() {
         </TouchableOpacity>
       </View>
 
-      {/* Daftar Notes */}
+      
       {notes.map((n) => (
         <View
           key={n.id}
